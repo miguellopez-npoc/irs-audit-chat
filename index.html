@@ -619,35 +619,33 @@
         }
 
         function clearChat() {
-            if (confirm('Clear all chat history?')) {
-                chatHistory = [];
-                localStorage.removeItem(STORAGE_KEY);
-                messagesContainer.innerHTML = `
-                    <div class="welcome-message" id="welcomeMessage">
-                        <h3>👋 Hi! I'm your IRS Audit Assistant</h3>
-                        <p>I can help you with financial information for KNI and NPOC</p>
-                        <div class="quick-actions">
-                            <button class="quick-action" onclick="sendQuickMessage('Are we ready for an IRS audit?')">
-                                Are we audit-ready?
-                            </button>
-                            <button class="quick-action" onclick="sendQuickMessage('What is the current P&L summary?')">
-                                P&L Summary
-                            </button>
-                            <button class="quick-action" onclick="sendQuickMessage('Which transactions need documentation?')">
-                                Pending documentation
-                            </button>
-                        </div>
+            chatHistory = [];
+            localStorage.removeItem(STORAGE_KEY);
+            messagesContainer.innerHTML = `
+                <div class="welcome-message" id="welcomeMessage">
+                    <h3>👋 Hi! I'm your IRS Audit Assistant</h3>
+                    <p>I can help you with financial information for KNI and NPOC</p>
+                    <div class="quick-actions">
+                        <button class="quick-action" onclick="sendQuickMessage('Are we ready for an IRS audit?')">
+                            Are we audit-ready?
+                        </button>
+                        <button class="quick-action" onclick="sendQuickMessage('What is the current P&L summary?')">
+                            P&L Summary
+                        </button>
+                        <button class="quick-action" onclick="sendQuickMessage('Which transactions need documentation?')">
+                            Pending documentation
+                        </button>
                     </div>
-                    <div class="typing-indicator" id="typingIndicator">
-                        <div class="message-avatar">🤖</div>
-                        <div class="typing-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                </div>
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="message-avatar">🤖</div>
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
-                `;
-            }
+                </div>
+            `;
         }
 
         function sendQuickMessage(text) {
