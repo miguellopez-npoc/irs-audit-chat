@@ -521,8 +521,9 @@
         // CONFIGURATION - EDIT THESE VALUES
         // ============================================
         const CONFIG = {
-            PIN: '123456',  // Change this to your desired PIN
-            WEBHOOK_URL: 'https://n8n.kihealthcareservices.org/webhook/irs-chat',
+            PIN: '123456',
+            WEBHOOK_URL: 'https://googlen8n.freedynamicdns.org/webhook/irs-chat',
+            AUTH_TOKEN: 'kni-irs-8f3x9Qm2pL7vR4wZ',
             COMPANY: 'K&I Healthcare'
         };
         // ============================================
@@ -679,10 +680,11 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'text/plain',
+                        'X-Auth-Token': CONFIG.AUTH_TOKEN
                     },
                     body: JSON.stringify({
                         message: message,
-                        history: chatHistory.slice(-10), // Last 10 messages for context
+                        history: chatHistory.slice(-10),
                         timestamp: new Date().toISOString()
                     })
                 });
